@@ -2,10 +2,6 @@
 # ============================================================
 #  Script terenkripsi - Hanief Autophile
 #  Dibuat  : Sun Mar  8 00:53:39 WIB 2026
-#  Asli    : run.sh
-#  Metode  : AES-256-CBC + PBKDF2
-#  Jalankan: bash run.enc.sh
-#  Dekripsi: bash encrypt-script.sh → menu [3]
 # ============================================================
 _DATA='U2FsdGVkX1/+tsC4JuRKgCbAlg8/ph53c5reNZRlFeNkyWqJ5oVYBcLKln/Q5UQG
 roMpnbxtZ4jFsgp4M80egMOWh7ow6MR1sta28JDSVjxJ4SteppQU0BcFSbkXmky1
