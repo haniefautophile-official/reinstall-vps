@@ -304,7 +304,8 @@ confirm_reinstall() {
     echo ""
     read -rp "$(printf "  ${RED}${BOLD}Ketik YES untuk melanjutkan : ${NC}")" CONFIRM
     echo ""
-    if [ "$CONFIRM" != "YES" ]; then
+    echo "Yes (y) No (n)"
+    if [ "$CONFIRM" != "y/n" ]; then
         echo -e " ${YELLOW}[~] Reinstall dibatalkan.${NC}"; echo ""; exit 0
     fi
 }
