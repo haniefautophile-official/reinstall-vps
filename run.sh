@@ -273,14 +273,13 @@ get_new_password() {
     sep_line
     echo ""
     while true; do
-        read -rsp "$(printf " ${YELLOW}Password baru (min 8 karakter) : ${NC}")" NEW_PASSWORD
+        read -rp "$(printf " ${YELLOW}Password baru           : ${NC}")" NEW_PASSWORD
+        read -rp "$(printf " ${YELLOW}Konfirmasi password     : ${NC}")" CONFIRM_PASSWORD
         echo ""
-        read -rsp "$(printf " ${YELLOW}Konfirmasi password            : ${NC}")" CONFIRM_PASSWORD
-        echo ""
-        if [ "$NEW_PASSWORD" != "$CONFIRM_PASSWORD" ]; then
-            echo -e " ${RED}[✗] Password tidak cocok!${NC}"; echo ""
-        elif [ ${#NEW_PASSWORD} -lt 8 ]; then
-            echo -e " ${RED}[✗] Password minimal 8 karakter!${NC}"; echo ""
+        if [ -z "$NEW_PASSWORD" ]; then
+            echo -e " ${RED}[✗] Password tidak boleh kosong!${NC}"; echo ""
+        elif [ "$NEW_PASSWORD" != "$CONFIRM_PASSWORD" ]; then
+            echo -e " ${RED}[✗] Password tidak cocok, coba lagi!${NC}"; echo ""
         else
             echo -e " ${GREEN}[✓] Password valid.${NC}"; echo ""; break
         fi
