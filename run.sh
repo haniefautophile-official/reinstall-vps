@@ -353,29 +353,56 @@ EOF
     fi
 }
 
-# ── Info Selesai ──────────────────────────────────────────────
+# ── Info Selesai + Prompt Reboot ─────────────────────────────
 show_post_info() {
     local pub_ip
     pub_ip=$(curl -s --max-time 5 ifconfig.me 2>/dev/null || echo "?")
+
     echo ""
     grn_top
-    grn_line "  ✓  REINSTALL BERHASIL DIMULAI  "
+    grn_line "  ✓  REINSTALL SIAP — RINGKASAN  "
     grn_bottom
     echo ""
     printf "  ${CYAN}  %-14s :${NC} ${BOLD}%s %s${NC}\n"  "OS Target"  "$OS_NAME" "$OS_VERSION"
     printf "  ${CYAN}  %-14s :${NC} ${BOLD}%s${NC}\n"     "IP Server"  "$pub_ip"
     printf "  ${CYAN}  %-14s :${NC} ${BOLD}root${NC}\n"   "Username"
-    printf "  ${CYAN}  %-14s :${NC} ${BOLD}[password Anda]${NC}\n" "Password"
+    printf "  ${CYAN}  %-14s :${NC} ${BOLD}%s${NC}\n"     "Password"   "$NEW_PASSWORD"
     echo ""
     sep_line
-    echo -e "  ${YELLOW}[!] Server reboot otomatis dalam beberapa menit.${NC}"
-    echo -e "  ${YELLOW}[!] Tunggu 5–15 menit sebelum SSH kembali.${NC}"
-    echo -e "  ${YELLOW}[!] Jika gagal SSH, instalasi OS masih berlangsung.${NC}"
+    echo -e "  ${YELLOW}[!] Instalasi OS dimulai SETELAH server reboot.${NC}"
+    echo -e "  ${YELLOW}[!] Tunggu 5-15 menit, lalu SSH kembali ke server.${NC}"
+    echo -e "  ${YELLOW}[!] Jika gagal SSH, instalasi masih berlangsung.${NC}"
     sep_line
     echo ""
     echo -e "  ${BLUE}Perintah SSH setelah selesai :${NC}"
     echo -e "    ${BOLD}ssh root@${pub_ip}${NC}"
     echo ""
+
+    # ── Prompt Reboot ──
+    sep_line
+    while true; do
+        read -rp "$(printf "  ${GREEN}${BOLD}Reboot sekarang untuk mulai instalasi? [y/n] : ${NC}")" REBOOT_CONFIRM
+        case "$REBOOT_CONFIRM" in
+            y|Y)
+                echo ""
+                echo -e "  ${GREEN}[✓] Rebooting...${NC}"
+                echo ""
+                sleep 2
+                reboot
+                break
+                ;;
+            n|N)
+                echo ""
+                echo -e "  ${YELLOW}[~] Reboot dibatalkan.${NC}"
+                echo -e "  ${DIM}      Jalankan 'reboot' secara manual jika sudah siap.${NC}"
+                echo ""
+                break
+                ;;
+            *)
+                echo -e "  ${RED}[✗] Masukkan y atau n${NC}"
+                ;;
+        esac
+    done
 }
 
 # ══════════════════════════════════════════════════════════════
