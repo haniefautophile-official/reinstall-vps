@@ -87,8 +87,13 @@ reinstall-vps/
 ├── run.sh          # Entry point (terenkripsi)
 └── README.md       # Dokumentasi ini
 ```
-
----
+## Tambahan untuk login VPS via Termux
+Mengatasi @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ saat login via termux setelah reinstall VPS.
+```bash
+rm ~/.ssh/known_hosts
+```
 
 ## 📜 License
 
