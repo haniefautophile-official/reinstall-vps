@@ -1,106 +1,119 @@
-<div align="center">
+# NISA VPN REINSTALL VPS
 
-# 🖥️ VPS Reinstall Script
-### by Hanief Autophile
+<p align="center">
+<img src="https://img.shields.io/badge/Version-8.0-blue">
+<img src="https://img.shields.io/badge/OS-Debian%20%7C%20Ubuntu-green">
+<img src="https://img.shields.io/badge/Author-Hanief%20Autophile-red">
+<img src="https://img.shields.io/badge/License-Free-orange">
+</p>
 
-![Bash](https://img.shields.io/badge/Shell-Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
-![OpenSSL](https://img.shields.io/badge/Encrypt-AES--256--CBC-721412?style=for-the-badge&logo=openssl&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+## Tentang
 
-> Script reinstall VPS otomatis dengan dukungan multi OS.  
-> Isi script terenkripsi — aman dari modifikasi tanpa izin.
+NISA VPN REINSTALL VPS adalah script sederhana untuk melakukan reinstall sistem operasi VPS secara otomatis menggunakan engine reinstall yang terpercaya.
 
-</div>
+Script ini menyediakan menu interaktif sehingga pengguna dapat memilih sistem operasi yang ingin dipasang tanpa perlu menghafal perintah yang rumit.
 
 ---
 
-## 🚀 How to Install
+## Fitur
+
+✔ Reinstall Debian 10
+
+✔ Reinstall Debian 11
+
+✔ Reinstall Debian 12
+
+✔ Reinstall Ubuntu 20.04
+
+✔ Reinstall Ubuntu 22.04
+
+✔ Reinstall Ubuntu 24.04
+
+✔ Menu Interaktif
+
+✔ Auto Download Reinstall Engine
+
+✔ Ringan dan Mudah Digunakan
+
+✔ Cocok untuk VPS KVM dan beberapa VPS berbasis Cloud
+
+---
+
+## Sistem Operasi yang Didukung
+
+| OS           | Status |
+| ------------ | ------ |
+| Debian 10    | ✅      |
+| Debian 11    | ✅      |
+| Debian 12    | ✅      |
+| Ubuntu 20.04 | ✅      |
+| Ubuntu 22.04 | ✅      |
+| Ubuntu 24.04 | ✅      |
+
+---
+
+## Instalasi
 
 ```bash
-git clone https://github.com/haniefautophile-official/reinstall-vps.git && cd reinstall-vps && chmod +x run.sh && bash run.sh
+wget -qO install.sh https://raw.githubusercontent.com/haniefautophile-official/reinstall-vps/main/install.sh && chmod +x install.sh && ./install.sh
 ```
 
----
-
-## 🖥️ OS System
-
-```
-╔══════════════════════════════════════════════════════════╗
-║                   PILIH OS TARGET                        ║
-╚══════════════════════════════════════════════════════════╝
-
-  No.  OS                       No.  OS
-  ────────────────────────────────────────────────────────
-  [1]  Ubuntu                   [6]  Fedora
-  [2]  Debian                   [7]  openSUSE
-  [3]  CentOS                   [8]  Alpine Linux
-  [4]  AlmaLinux                [9]  Kali Linux
-  [5]  Rocky Linux              [0]  Keluar
-  ────────────────────────────────────────────────────────
-```
-
----
-
-## 📋 OS & Versi yang Didukung
-
-| OS | Versi |
-|---|---|
-| **Ubuntu** | 18.04 / 20.04 / 22.04 / 24.04 LTS |
-| **Debian** | 9 / 10 / 11 / 12 |
-| **CentOS** | 7 / Stream 8 / Stream 9 |
-| **AlmaLinux** | 8.x / 9.x |
-| **Rocky Linux** | 8.x / 9.x |
-| **Fedora** | 38 / 39 / 40 |
-| **openSUSE** | Leap 15.4 / 15.5 / Tumbleweed |
-| **Alpine Linux** | 3.17 / 3.18 / 3.19 |
-| **Kali Linux** | Rolling (latest) |
-
----
-
-## ⚙️ Requirements
-
-- VPS dengan akses **root**
-- Koneksi internet aktif
-- OS: Debian / Ubuntu / CentOS (OS awal sebelum reinstall)
+atau
 
 ```bash
-# Pastikan tools berikut tersedia (auto-install jika belum ada)
-wget  curl  openssl
+curl -fsSL https://raw.githubusercontent.com/haniefautophile-official/reinstall-vps/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 
 ---
 
-## ⚠️ Peringatan
+## Cara Penggunaan
 
-> **SEMUA DATA AKAN TERHAPUS PERMANEN saat reinstall dijalankan.**  
-> Pastikan sudah backup data penting sebelum melanjutkan.
+Jalankan script:
 
-Script akan meminta konfirmasi `YES` sebelum proses dimulai,  
-dan konfirmasi `y/n` sebelum server reboot.
-
----
-
-## 📁 Struktur Repo
-
-```
-reinstall-vps/
-├── run.sh          # Entry point (terenkripsi)
-└── README.md       # Dokumentasi ini
-```
-## Tambahan untuk login VPS via Termux
-Mengatasi @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ saat login via termux setelah reinstall VPS.
 ```bash
-rm ~/.ssh/known_hosts
+bash install.sh
 ```
 
-## 📜 License
-
-MIT License © [Hanief Autophile](https://github.com/haniefautophile-official)
+Kemudian pilih sistem operasi yang ingin diinstal ulang melalui menu yang tersedia.
 
 ---
 
-<div align="center">
-  <sub>Made with ❤️ by Hanief Autophile</sub>
-</div>
+## Peringatan
+
+⚠️ Seluruh data pada VPS berpotensi hilang setelah proses reinstall.
+
+⚠️ Lakukan backup data penting sebelum menjalankan script.
+
+⚠️ Pastikan VPS memiliki akses internet yang stabil.
+
+⚠️ Disarankan memiliki akses Console/VNC dari provider VPS.
+
+---
+
+## Informasi
+
+Developer : Hanief Autophile
+
+Project : NISA VPN
+
+Github : https://github.com/haniefautophile-official
+
+---
+
+## Credit
+
+* bin456789/reinstall
+* Open Source Community
+* Linux Foundation
+
+---
+
+## Support
+
+Jika menemukan bug atau ingin memberikan saran, silakan buka Issue pada repository GitHub.
+
+---
+
+## Disclaimer
+
+Script ini disediakan apa adanya (AS IS). Pengguna bertanggung jawab penuh atas penggunaan script ini dan segala risiko yang ditimbulkan.
