@@ -53,6 +53,9 @@ Script ini menyediakan menu interaktif sehingga pengguna dapat memilih sistem op
 ---
 
 ## Instalasi
+```bash
+git clone https://github.com/haniefautophile-official/reinstall-vps.git && cd reinstall-vps && bash install.sh
+```
 
 ```bash
 wget -qO install.sh https://raw.githubusercontent.com/haniefautophile-official/reinstall-vps/main/install.sh && chmod +x install.sh && ./install.sh
